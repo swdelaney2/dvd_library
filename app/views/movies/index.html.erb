@@ -9,6 +9,9 @@
   <% @movies.each do |movie| %>
     <tr>
       <td><%= movie.imdbID %></td>
+      <script type="text/javascript">
+        loadMovieInfo('<%= movie.imdbID %>');
+      </script>
       <td><%= link_to 'Show', movie_path(movie) %></td>
       <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
       <td><%= link_to 'Destroy', movie_path(movie),

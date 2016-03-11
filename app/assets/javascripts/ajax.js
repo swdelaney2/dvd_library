@@ -6,7 +6,7 @@ function loadMovieInfo(searchTerm) {
     success: function(data) {
         console.log("success");
         console.log(data);
-        $('#movieInfo').append("<a href='http://www.imdb.com/title/" + searchTerm + "' target=_blank>" + data.Title + "</a> was released in " + data.Year + ".");
+        $('#movieInfo').append("<p><a href='http://www.imdb.com/title/" + searchTerm + "' target=_blank>" + data.Title + "</a> was released in " + data.Year + ".");
 
     },
     error: function(error) {
@@ -18,4 +18,4 @@ function loadMovieInfo(searchTerm) {
 $.ajax(ajaxArgument);
 }
 
-loadMovieInfo('tt0275022');
+// loadMovieInfo('tt0275022');
