@@ -1,0 +1,10 @@
+<%= form_for :movie, url: movies_path do |inc| %>
+  <p>
+    <%= inc.label :imdbID %><br>
+    <%= inc.text_field :imdbID %>
+  </p>
+
+  <p>
+    <%= inc.submit %>
+  </p>
+<% end %>
