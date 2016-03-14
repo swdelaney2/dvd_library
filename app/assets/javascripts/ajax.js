@@ -1,17 +1,51 @@
 $(document).on('page:load', function() {
+  $('#next_page').hide();
 $('#search_form').submit(function(e) {
     e.preventDefault();
     var keyword = $(":input[name=keyword]", this).val();
-    searchMovieByTitle(keyword)
+    searchMovieByTitle(keyword, '1');
+    $('#next_page').show();
+
+
+    $('#next_page').submit(function(e) {
+        e.preventDefault();
+        console.log('next page clicked');
+        console.log(keyword);
+
+        searchMovieByTitle(keyword, '2');
+        $('#next_page').hide();
+
+    });
+
 });
+
+
+
 });
 
 $(document).ready(function() {
+  $('#next_page').hide();
+
 $('#search_form').submit(function(e) {
     e.preventDefault();
     var keyword = $(":input[name=keyword]", this).val();
-    searchMovieByTitle(keyword)
+    searchMovieByTitle(keyword, '1');
+    $('#next_page').show();
+
+
+    $('#next_page').submit(function(e) {
+        e.preventDefault();
+        console.log('next page clicked');
+        console.log(keyword);
+        searchMovieByTitle(keyword, '2');
+        $('#next_page').hide();
+
+    });
+
 });
+
+
+
 });
 
 function loadMovieInfo(searchTerm) {
@@ -43,13 +77,14 @@ function loadMovieInfo(searchTerm) {
 $.ajax(ajaxArgument);
 }
 
-function searchMovieByTitle(searchTerm) {
+function searchMovieByTitle(searchTerm, page) {
   var ajaxArgument = {
     type: 'get',
-    url: 'http://www.omdbapi.com/?s=' + searchTerm + '&y=&plot=short&r=json',
+    url: 'http://www.omdbapi.com/?s=' + searchTerm + '&page=' + page + '&y=&plot=short&r=json',
     dataType: 'json',
     success: function(data) {
         console.log("success");
+        console.log('searchterm is ' + searchTerm + ' and page is ' + page);
           $('#searchResults').html('');
 
         // console.log(data.Search[0]);
@@ -58,6 +93,7 @@ function searchMovieByTitle(searchTerm) {
           $('#searchResults').append('<ul><li><img src="' + data.Search[i].Poster + '" onError="this.onerror=null;this.src=\'/images/poster-not-available.jpg\';"></li><ul><li><strong>' + data.Search[i].Title + '</strong> (' + data.Search[i].Year + ')</li></ul></ul>' + '<form action="/movies" method="post"><input type="hidden" name="authenticity_token" value="' + window.authToken +
           '"><input type="hidden" name="movie[imdbID]" id="movie[imdbID]" value="' + data.Search[i].imdbID + '"><input type="hidden" name="movie[Title]" id="movie[Title]" value="' + data.Search[i].Title + '"><input type="hidden" name="movie[Year]" id="movie[Year]" value="' + data.Search[i].Year + '"><input type="hidden" name="movie[Poster]" id="movie[Poster]" value="' + data.Search[i].Poster + '"><input type="submit" name="commit" value="Add Movie"/></form>');
         }
+        // $('#searchResults').append('<button type="submit" name="button" id="next_page">Next page?</button>');
 
 
 

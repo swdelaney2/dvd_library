@@ -17,6 +17,15 @@ body {
   background: rgb(192, 218, 237);
 }
 
+#notice {
+  border: 1px black solid;
+  color: white;
+  background: rgba(43, 45, 77, .5);
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
 .results {
   width: auto;
   border: 1px black solid;

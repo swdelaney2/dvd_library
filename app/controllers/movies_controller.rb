@@ -24,7 +24,8 @@ def create
   @movie = Movie.new(movie_params)
 
   if @movie.save
-    redirect_to @movie
+    # redirect_to @movie
+    redirect_to root_path, notice: @movie.Title + " was added!"
   else
     render 'new'
   end

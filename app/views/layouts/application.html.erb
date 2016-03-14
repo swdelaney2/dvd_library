@@ -7,6 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% unless notice.nil? %>
+    <div id=notice>
+      <strong><%= notice %></strong>
+    </div>
+  <% end %>
 
 <%= yield %>
 <hr>
