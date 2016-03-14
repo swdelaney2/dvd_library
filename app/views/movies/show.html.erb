@@ -1,4 +1,18 @@
-<p>
-  <strong>IMDBd ID:</strong>
-  <%= @movie.imdbID %>
-</p>
+<script type="text/javascript">
+      loadMovieInfo('<%= @movie.imdbID %>');
+    </script>
+
+<h2>
+<%= @movie.Title %> (<%= @movie.Year %>)
+</h2>
+<div id="poster">
+  <a href='http://www.imdb.com/title/<%= @movie.imdbID %>' target=_blank>
+  <img src="<%= @movie.Poster %>" height="400px"></a>
+</div>
+<div id="movieInfo">
+</div>
+<div id="clear"></div>
+
+<br><%= link_to 'Delete', movie_path(@movie),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>

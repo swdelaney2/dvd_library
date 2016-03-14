@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
 def index
-  @movies = Movie.all
+  @movies = Movie.all.order(:Title)
 end
 
 def results
@@ -49,7 +49,7 @@ end
 
 private
   def movie_params
-    params.require(:movie).permit(:imdbID)
+    params.require(:movie).permit(:imdbID, :Title, :Poster, :Year)
   end
 
 end

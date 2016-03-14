@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 20160311214443) do
 
   create_table "movies", force: :cascade do |t|
     t.string   "imdbID"
+    t.string   "Title"
+    t.string   "Poster"
+    t.string   "Year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
