@@ -17,6 +17,11 @@ body {
   background: rgb(192, 218, 237);
 }
 
+footer {
+  width: 100%;
+  text-align: center;
+}
+
 #notice {
   border: 1px black solid;
   color: white;
@@ -34,6 +39,20 @@ body {
   margin: 1em;
   text-align: center;
   padding: 1em;
+}
+
+.results {
+  height: 300px;
+  width: auto;
+  border: 1px black solid;
+  float: left;
+  margin: 1em;
+  text-align: center;
+  padding: 1em;
+}
+
+.results:hover {
+  background: rgb(139, 196, 228);
 }
 
 .movie_title {

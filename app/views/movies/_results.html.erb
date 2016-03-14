@@ -2,8 +2,8 @@
 
 <% @movies.each do |movie| %>
   <div class="results">
-    <img src="<%= movie.Poster %>">
-    <div class="movie_title"><strong><%= movie.Title %></strong> (<%= movie.Year %>)</div>
+    <img src="<%= movie.Poster %>" onError="this.onerror=null;this.src='/images/poster-not-available.jpg'">
+    <p><div class="movie_title"><strong><%= movie.Title %></strong> (<%= movie.Year %>)</div>
     <p><%= link_to 'More Info', movie_path(movie) %>
     <!-- <%= link_to 'Edit', edit_movie_path(movie) %> -->
     <br><%= link_to 'Delete', movie_path(movie),
