@@ -2,6 +2,7 @@ class MoviesController < ApplicationController
 
 def index
   @movies = Movie.all.order(:Title)
+  @movie_count = Movie.count
 end
 
 def results
@@ -26,6 +27,8 @@ def create
   if @movie.save
     # redirect_to @movie
     redirect_to root_path, notice: @movie.Title + " was added!"
+    # redirect_to search_path, notice: @movie.Title + " was added!"
+
   else
     render 'new'
   end

@@ -27,11 +27,17 @@ body {
 }
 
 .results {
+  height: 300px;
   width: auto;
   border: 1px black solid;
   float: left;
   margin: 1em;
   text-align: center;
+  padding: 1em;
+}
+
+.movie_title {
+  max-width: 200px;
 }
 
 #clear {
@@ -42,7 +48,6 @@ div.results>img {
   display: block;
   height: 200px;
   margin: auto;
-  padding: 1em;
 }
 
 #poster {
