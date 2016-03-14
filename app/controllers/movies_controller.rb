@@ -4,6 +4,10 @@ def index
   @movies = Movie.all
 end
 
+def results
+  @movies = Movie.all
+end
+
 def show
   @movie = Movie.find(params[:id])
 end

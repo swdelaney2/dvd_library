@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+.results {
+  width: 150px;
+  border: 1px black solid;
+  float: left;
+  margin: 1em;
+}
+
+#clear {
+  clear: both;
+}
