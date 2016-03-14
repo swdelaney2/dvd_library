@@ -1,0 +1,18 @@
+<script type="text/javascript">
+window.authToken = '<%= form_authenticity_token %>';
+</script>
+
+<h1>Search By IMDb ID</h1>
+
+<%= form_tag("/search", method: "get", id: "search_by_id_form") do %>
+  <%= text_field_tag(:keyword, nil, placeholder: "Search the OMDb API") %>
+  <%= submit_tag("Submit") %>
+<% end %>
+
+<!-- <form id="search_form" method="get">
+  <input type="text" name="keyword" class="searchbox" placeholder="Search the OMDb API"></input>
+  <button type="submit" value="submit" class="btn btn-default">Submit</button>
+</form> -->
+
+<div id=searchResults>
+</div>

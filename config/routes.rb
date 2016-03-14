@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root 'movies#index'
   get '/search' => 'movies#search'
+  get '/searchByID' => 'movies#searchByID'
+
   resources :movies
 
 

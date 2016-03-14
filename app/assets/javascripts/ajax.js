@@ -19,6 +19,12 @@ $('#search_form').submit(function(e) {
 
 });
 
+// for searching by id
+$('#search_by_id_form').submit(function(e) {
+    e.preventDefault();
+    var keyword = $(":input[name=keyword]", this).val();
+    searchMovieByID(keyword);
+    });
 
 
 });
@@ -44,7 +50,12 @@ $('#search_form').submit(function(e) {
 
 });
 
-
+// for searching by id
+$('#search_by_id_form').submit(function(e) {
+    e.preventDefault();
+    var keyword = $(":input[name=keyword]", this).val();
+    searchMovieByID(keyword);
+    });
 
 });
 
@@ -80,7 +91,7 @@ $.ajax(ajaxArgument);
 function searchMovieByTitle(searchTerm, page) {
   var ajaxArgument = {
     type: 'get',
-    url: 'http://www.omdbapi.com/?s=' + searchTerm + '&page=' + page + '&y=&plot=short&r=json',
+    url: 'http://www.omdbapi.com/?s=' + searchTerm + '*&page=' + page + '&y=&plot=short&r=json',
     dataType: 'json',
     success: function(data) {
         console.log("success");
@@ -109,3 +120,34 @@ $.ajax(ajaxArgument);
 }
 
 // loadMovieInfo('tt0275022');
+
+
+
+
+function searchMovieByID(searchTermID) {
+  var ajaxArgument = {
+    type: 'get',
+    url: 'http://www.omdbapi.com/?i=' + searchTermID + '&y=&plot=short&r=json',
+    dataType: 'json',
+    success: function(data) {
+        console.log("success");
+          $('#searchResults').html('');
+          // console.log(data);
+
+          $('#searchResults').append('<ul><li><img src="' + data.Poster + '" onError="this.onerror=null;this.src=\'/images/poster-not-available.jpg\';"></li><ul><li><strong>' + data.Title + '</strong> (' + data.Year + ')</li></ul></ul>' + '<form action="/movies" method="post"><input type="hidden" name="authenticity_token" value="' + window.authToken +
+          '"><input type="hidden" name="movie[imdbID]" id="movie[imdbID]" value="' + data.imdbID + '"><input type="hidden" name="movie[Title]" id="movie[Title]" value="' + data.Title + '"><input type="hidden" name="movie[Year]" id="movie[Year]" value="' + data.Year + '"><input type="hidden" name="movie[Poster]" id="movie[Poster]" value="' + data.Poster + '"><input type="submit" name="commit" value="Add Movie"/></form>');
+
+        // $('#searchResults').append('<button type="submit" name="button" id="next_page">Next page?</button>');
+
+
+
+
+    },
+    error: function(error) {
+        console.log("error")
+        console.log(error);
+    }
+};
+// make the ajax call
+$.ajax(ajaxArgument);
+}
