@@ -1,7 +1,7 @@
 <div id="clear"></div>
 
 <% @movies.each do |movie| %>
-  <div class="results">
+  <div class="results" href="#"><span></span></a>
     <img src="<%= movie.Poster %>" onError="this.onerror=null;this.src='/images/poster-not-available.jpg'">
     <p><div class="movie_title"><strong><%= movie.Title %></strong> (<%= movie.Year %>)</div>
     <p><%= link_to 'More Info', movie_path(movie) %>
