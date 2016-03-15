@@ -62,7 +62,7 @@ $('#search_by_id_form').submit(function(e) {
 function loadMovieInfo(searchTerm) {
   var ajaxArgument = {
     type: 'get',
-    url: 'http://www.omdbapi.com/?i=' + searchTerm + '&y=&plot=short&r=json',
+    url: 'https://www.omdbapi.com/?i=' + searchTerm + '&y=&plot=short&r=json',
     dataType: 'json',
     success: function(data) {
         console.log("success");
@@ -91,7 +91,7 @@ $.ajax(ajaxArgument);
 function searchMovieByTitle(searchTerm, page) {
   var ajaxArgument = {
     type: 'get',
-    url: 'http://www.omdbapi.com/?s=' + searchTerm + '*&page=' + page + '&y=&plot=short&r=json',
+    url: 'https://www.omdbapi.com/?s=' + searchTerm + '*&page=' + page + '&y=&plot=short&r=json',
     dataType: 'json',
     success: function(data) {
         console.log("success");
@@ -127,7 +127,7 @@ $.ajax(ajaxArgument);
 function searchMovieByID(searchTermID) {
   var ajaxArgument = {
     type: 'get',
-    url: 'http://www.omdbapi.com/?i=' + searchTermID + '&y=&plot=short&r=json',
+    url: 'https://www.omdbapi.com/?i=' + searchTermID + '&y=&plot=short&r=json',
     dataType: 'json',
     success: function(data) {
         console.log("success");
