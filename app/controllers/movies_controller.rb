@@ -5,6 +5,16 @@ def index
   @movie_count = Movie.count
 end
 
+def christopher
+  @christopher_movies = Movie.where(owner: 'Christopher').order(:Title)
+  @movie_count = Movie.where(owner: 'Christopher').count
+end
+
+def stephen
+  @stephen_movies = Movie.where(owner: 'Stephen').order(:Title)
+  @movie_count = Movie.where(owner: 'Stephen').count
+end
+
 def results
   @movies = Movie.all
 end
@@ -53,7 +63,7 @@ end
 
 private
   def movie_params
-    params.require(:movie).permit(:imdbID, :Title, :Poster, :Year)
+    params.require(:movie).permit(:imdbID, :Title, :Poster, :Year, :owner)
   end
 
 end

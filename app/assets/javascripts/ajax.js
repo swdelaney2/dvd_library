@@ -102,11 +102,11 @@ function searchMovieByTitle(searchTerm, page) {
         // console.log(data.Search.length);
         for (var i = 0; i < data.Search.length; i++) {
           $('#searchResults').append('<ul><li><img src="' + data.Search[i].Poster + '" onError="this.onerror=null;this.src=\'/images/poster-not-available.jpg\';"></li><ul><li><strong>' + data.Search[i].Title + '</strong> (' + data.Search[i].Year + ')</li></ul></ul>' + '<form action="/movies" method="post"><input type="hidden" name="authenticity_token" value="' + window.authToken +
-          '"><input type="hidden" name="movie[imdbID]" id="movie[imdbID]" value="' + data.Search[i].imdbID + '"><input type="hidden" name="movie[Title]" id="movie[Title]" value="' + data.Search[i].Title + '"><input type="hidden" name="movie[Year]" id="movie[Year]" value="' + data.Search[i].Year + '"><input type="hidden" name="movie[Poster]" id="movie[Poster]" value="' + data.Search[i].Poster + '"><input type="submit" name="commit" value="Add Movie"/></form>');
+          '"><input type="hidden" name="movie[imdbID]" id="movie[imdbID]" value="' + data.Search[i].imdbID + '"><input type="hidden" name="movie[Title]" id="movie[Title]" value="' + data.Search[i].Title + '"><input type="hidden" name="movie[Year]" id="movie[Year]" value="' + data.Search[i].Year + '"><input type="hidden" name="movie[Poster]" id="movie[Poster]" value="' + data.Search[i].Poster + '"><input type="hidden" name="movie[owner]" id="movie[owner]" value="Stephen"><input type="submit" name="commit" value="Add Movie"/></form>');
         }
         // $('#searchResults').append('<button type="submit" name="button" id="next_page">Next page?</button>');
 
-
+// Note: Owner could be passed in using params, as simple as using different links.
 
 
     },
